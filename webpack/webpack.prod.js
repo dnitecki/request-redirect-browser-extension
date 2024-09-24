@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const CompressionPlugin = require("compression-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -8,6 +8,12 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.name": JSON.stringify("production"),
     }),
-    new CompressionPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "public",
+        },
+      ],
+    }),
   ],
 };
