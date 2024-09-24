@@ -1,0 +1,10 @@
+{
+  "manfest_version": 3,
+  "name": "Request Redirect",
+  "version": "0.1.0",
+  "description": "Redirect Requests with this extension",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"]
+}
