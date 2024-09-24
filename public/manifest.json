@@ -1,5 +1,5 @@
 {
-  "manfest_version": 3,
+  "manifest_version": 3,
   "name": "Request Redirect",
   "version": "0.1.0",
   "description": "Redirect Requests with this extension",
