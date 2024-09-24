@@ -44,7 +44,7 @@ module.exports = {
       template: path.resolve(__dirname, "..", "./public/index.html"),
       favicon: "./public/favicon.ico",
       manifest: "./public/manifest.json",
-      filename: "index.html",
+      filename: "popup.html",
     }),
   ],
   stats: "errors-only",
