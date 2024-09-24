@@ -5,7 +5,15 @@
   "description": "Redirect Requests with this extension",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Open"
+    "default_title": "Open",
+    "default_icon": {
+      "128": "rr-icon-128.png"
+    }
   },
-  "permissions": ["storage", "scripting"]
+  "permissions": ["storage", "scripting"],
+  "icons": {
+    "32": "rr-icon-32.png",
+    "64": "rr-icon-64.png",
+    "128": "rr-icon-128.png"
+  }
 }
