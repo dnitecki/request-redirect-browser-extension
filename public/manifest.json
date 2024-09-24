@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "description": "Redirect Requests with this extension",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Open"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "scripting"]
 }
