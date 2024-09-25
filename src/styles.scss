@@ -1,0 +1,88 @@
+:root {
+  //colors
+  --primary: rgb(24, 45, 67);
+
+  //css variables
+  --border-radius: 10px;
+  --header-height: 4rem;
+  --shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--primary);
+  /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(232, 232, 232); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+html,
+body {
+  height: 600px; /* your desired width */
+  width: 400px;
+  position: relative;
+  overflow: auto;
+}
+* {
+  font-family: "Poppins";
+  box-sizing: border-box;
+  margin: 0;
+}
+h1 {
+  font-weight: 400;
+  font-size: 25px;
+}
+h2 {
+  font-weight: 500;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+h4 {
+  font-weight: 400;
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+ul {
+  all: unset;
+}
+li {
+  all: unset;
+}
+li a {
+  all: unset;
+}
+a {
+  all: unset;
+  cursor: pointer;
+}
+input {
+  all: unset;
+}
+textarea {
+  all: unset;
+}
+button,
+textarea,
+input,
+select,
+option,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

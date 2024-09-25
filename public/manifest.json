@@ -12,8 +12,6 @@
   },
   "permissions": ["storage", "scripting"],
   "icons": {
-    "32": "rr-icon-32.png",
-    "64": "rr-icon-64.png",
     "128": "rr-icon-128.png"
   }
 }
