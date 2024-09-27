@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch --config webpack/webpack.config.js --env env=dev",
-    "build": "webpack --config webpack/webpack.config.js --env env=prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.cjs"
   },
   "keywords": [],
   "author": "dominick.nitecki",
@@ -18,6 +16,7 @@
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
     "@babel/runtime": "^7.24.4",
+    "@types/chrome": "^0.0.272",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
     "babel-loader": "^9.1.3",

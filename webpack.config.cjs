@@ -1,8 +1,36 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "./src/index.tsx"),
+  mode: "production",
+  target: "web",
+  entry: {
+    contentScript: "./src/content/index.ts",
+    background: "./src/background/index.ts",
+    react: "./src/react/index.tsx",
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "..", "./public/index.html"),
+      favicon: "./public/favicon.ico",
+      manifest: "./public/manifest.json",
+      filename: "popup.html",
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve("manifest.json"),
+          to: path.resolve("dist"),
+        },
+      ],
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -35,17 +63,5 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: path.resolve(__dirname, "..", "./build"),
-    filename: "bundle.js",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./public/index.html"),
-      favicon: "./public/favicon.ico",
-      manifest: "./public/manifest.json",
-      filename: "popup.html",
-    }),
-  ],
   stats: "errors-only",
 };
