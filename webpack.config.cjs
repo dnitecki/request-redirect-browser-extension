@@ -22,10 +22,6 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve("manifest.json"),
-          to: path.resolve("dist"),
-        },
-        {
           from: "public",
         },
       ],
