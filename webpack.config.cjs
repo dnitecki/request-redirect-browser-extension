@@ -17,16 +17,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./public/index.html"),
-      favicon: "./public/favicon.ico",
-      manifest: "./public/manifest.json",
-      filename: "popup.html",
+      template: "./src/index.html",
     }),
     new CopyPlugin({
       patterns: [
         {
           from: path.resolve("manifest.json"),
           to: path.resolve("dist"),
+        },
+        {
+          from: "public",
         },
       ],
     }),
