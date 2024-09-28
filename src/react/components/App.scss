@@ -1,6 +1,6 @@
 .app-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   overflow: visible;
   min-height: 100vh;
   width: 100%;
@@ -13,4 +13,13 @@
   width: 100%;
   justify-content: center;
   padding: 1rem 0;
+  gap: 0.5rem;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 1rem;
 }

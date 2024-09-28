@@ -1,0 +1,34 @@
+.rule-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  gap: 0.5rem;
+}
+.form-label {
+  color: white;
+  font-size: 16px;
+}
+.form-input {
+  background-color: white;
+  height: fit-content;
+  max-width: 100%;
+  padding: 0.5rem 0.5rem;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid white;
+  font-size: 16px;
+  transition: all 300ms ease-in-out;
+}
+.form-input:focus {
+  border: 2px solid black;
+}
+.form-submit {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 16px;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
