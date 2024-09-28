@@ -23,7 +23,8 @@ const RuleForm = () => {
         placeholder="https://new-url.com"
       />
       <button type="submit" className="form-submit">
-        Add Rule <AddIcon fontSize="medium" />
+        <p>Add Rule</p>
+        <AddIcon fontSize="medium" />
       </button>
     </form>
   );
