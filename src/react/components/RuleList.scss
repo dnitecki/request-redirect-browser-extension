@@ -8,12 +8,20 @@
 .rule-list-item {
   display: flex;
   max-width: 100%;
+  flex-direction: column;
   justify-content: center;
   background-color: var(--secondary);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
-  p {
-    font-size: 16px;
+}
+.rule-list-edit {
+  display: flex;
+  max-width: 100%;
+}
+.rule-list-info {
+  display: flex;
+  max-width: 100%;
+  h2 {
     width: 100%;
     display: flex;
     align-items: center;

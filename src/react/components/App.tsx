@@ -12,6 +12,9 @@ export default function App() {
       </section>
       <section className="main">
         <RuleForm />
+        <div className="header">
+          <h1>Rules</h1>
+        </div>
         <RuleList />
       </section>
     </div>

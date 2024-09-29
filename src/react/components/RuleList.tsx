@@ -43,29 +43,31 @@ const RuleList = () => {
       {ruleList?.map((item: StorageObject) => (
         <>
           <li key={item.ruleName} className="rule-list-item">
-            <p>{item.ruleName}</p>
-            <div className="rule-list-options">
-              <button onClick={() => handleEdit(item.ruleName)}>
-                <EditIcon fontSize="medium" />
-              </button>
-              <button onClick={() => handleDelete(item.ruleName)}>
-                <DeleteIcon fontSize="medium" />
-              </button>
+            <div className="rule-list-info">
+              <h2>{item.ruleName}</h2>
+              <div className="rule-list-options">
+                <button onClick={() => handleEdit(item.ruleName)}>
+                  <EditIcon fontSize="medium" />
+                </button>
+                <button onClick={() => handleDelete(item.ruleName)}>
+                  <DeleteIcon fontSize="medium" />
+                </button>
+              </div>
+            </div>
+            <div className="rule-list-edit">
+              {isEditing && rule === item.ruleName && (
+                <RuleForm
+                  initialState={{
+                    ruleName: item.ruleName,
+                    fromUrl: item.fromUrl,
+                    toUrl: item.toUrl,
+                    enabled: false,
+                  }}
+                  setIsEditing={setIsEditing}
+                />
+              )}
             </div>
           </li>
-          <div className="rule-list-edit">
-            {isEditing && rule === item.ruleName && (
-              <RuleForm
-                initialState={{
-                  ruleName: item.ruleName,
-                  fromUrl: item.fromUrl,
-                  toUrl: item.toUrl,
-                  enabled: false,
-                }}
-                setIsEditing={setIsEditing}
-              />
-            )}
-          </div>
         </>
       ))}
     </ul>

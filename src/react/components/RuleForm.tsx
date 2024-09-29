@@ -41,11 +41,11 @@ const RuleForm: React.FC<{
             <div className="form-row">
               <button className="form-submit" onClick={handleCancel}>
                 <p>Cancel</p>
-                <CloseIcon fontSize="medium" />
+                <CloseIcon fontSize="small" />
               </button>
               <button type="submit" className="form-submit">
-                <p>Edit Rule</p>
-                <CheckIcon fontSize="medium" />
+                <p>Save Rule</p>
+                <CheckIcon fontSize="small" />
               </button>
             </div>
           </>
@@ -53,7 +53,7 @@ const RuleForm: React.FC<{
           <div className="form-row">
             <button type="submit" className="form-submit">
               <p>Add Rule</p>
-              <AddIcon fontSize="medium" />
+              <AddIcon fontSize="small" />
             </button>
           </div>
         )}
@@ -63,20 +63,24 @@ const RuleForm: React.FC<{
 
   return (
     <form onSubmit={setRule} id="ruleForm" className="rule-form-container">
-      <label htmlFor="fromUrl" className="form-label">
-        Rule Name
-      </label>
-      <input
-        type="text"
-        id="ruleName"
-        name="ruleName"
-        className="form-input"
-        placeholder="Rule123"
-        value={formData.ruleName}
-        onChange={handleChange}
-        disabled={initialState ? true : false}
-        required
-      />
+      {!initialState && (
+        <>
+          <label htmlFor="fromUrl" className="form-label">
+            Rule Name
+          </label>
+          <input
+            type="text"
+            id="ruleName"
+            name="ruleName"
+            className="form-input"
+            placeholder="Rule123"
+            value={formData.ruleName}
+            onChange={handleChange}
+            disabled={initialState ? true : false}
+            required
+          />
+        </>
+      )}
       <label htmlFor="fromUrl" className="form-label">
         From URL:
       </label>
