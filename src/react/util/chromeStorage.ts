@@ -1,13 +1,18 @@
 import { StorageObject } from "../types/types";
 
 export const setToChromeStorage = (key: string, value: StorageObject) => {
-  chrome.storage.sync.set({ [key]: value }, () => {
-    console.log("value is set");
+  chrome.storage.sync.set({ [key]: value });
+};
+
+export const getFromChromeStorage = (keys: string[] | null) => {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get(keys, (res) => {
+      const valuesArray = Object.values(res);
+      resolve(valuesArray);
+    });
   });
 };
 
-export const getFormChromeStorage = (keys: string[]) => {
-  chrome.storage.sync.get(keys, (res) => {
-    console.log("returned", res);
-  });
+export const removeFromChromeStorage = (key: string) => {
+  chrome.storage.sync.remove(key);
 };
