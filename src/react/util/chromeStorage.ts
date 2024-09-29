@@ -8,7 +8,6 @@ export const setToChromeStorage = (key: string, value: StorageObject) => {
 
 export const getFormChromeStorage = (keys: string[]) => {
   chrome.storage.sync.get(keys, (res) => {
-    console.log(res);
-    return res;
+    console.log("returned", res);
   });
 };

@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Request Redirect",
+  "name": "ReRoute",
   "version": "0.1.0",
   "description": "Redirect Requests with this extension",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Request Redirect",
+    "default_title": "ReRoute",
     "default_icon": {
       "128": "rr-icon-128.png"
     }
