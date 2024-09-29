@@ -6,6 +6,7 @@ import {
 } from "../util/chromeStorage";
 import { StorageObject } from "../types/types";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 const RuleList = () => {
   const [ruleList, setRuleList] = useState(null);
@@ -36,10 +37,12 @@ const RuleList = () => {
         <li key={item.ruleName} className="rule-list-item">
           <p>{item.ruleName}</p>
           <div className="rule-list-options">
-            <DeleteIcon
-              fontSize="medium"
-              onClick={() => handleDelete(item.ruleName)}
-            />
+            <button>
+              <EditIcon fontSize="medium" />
+            </button>
+            <button onClick={() => handleDelete(item.ruleName)}>
+              <DeleteIcon fontSize="medium" />
+            </button>
           </div>
         </li>
       ))}
