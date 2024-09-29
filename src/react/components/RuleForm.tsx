@@ -8,37 +8,31 @@ import {
   setToChromeStorage,
 } from "../util/chromeStorage";
 
-const formInitialState: StorageObject = {
-  fromUrl: EMPTY_STRING,
-  toUrl: EMPTY_STRING,
-  enabled: false,
-};
-
-const ruleForm = useRef();
-const [formData, setFormData] = useState(formInitialState);
-
-const handleChange = (e: any) => {
-  const { name, value } = e.target;
-  setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-};
-
-const setRule = (e: any) => {
-  e.preventDefault();
-  setToChromeStorage("rule", formData);
-  setFormData(formInitialState);
-};
-
-useEffect(() => {
-  getFormChromeStorage([]);
-});
 const RuleForm = () => {
+  const formInitialState: StorageObject = {
+    fromUrl: EMPTY_STRING,
+    toUrl: EMPTY_STRING,
+    enabled: false,
+  };
+
+  const [formData, setFormData] = useState(formInitialState);
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const setRule = (e: any) => {
+    e.preventDefault();
+    setToChromeStorage("rule", formData);
+    setFormData(formInitialState);
+  };
+
+  useEffect(() => {
+    getFormChromeStorage([]);
+  });
+
   return (
-    <form
-      ref={ruleForm}
-      onSubmit={setRule}
-      id="ruleForm"
-      className="rule-form-container"
-    >
+    <form onSubmit={setRule} id="ruleForm" className="rule-form-container">
       <label htmlFor="fromUrl" className="form-label">
         From URL:
       </label>
