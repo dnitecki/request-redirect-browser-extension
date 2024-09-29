@@ -50,10 +50,12 @@ const RuleForm: React.FC<{
             </div>
           </>
         ) : (
-          <button type="submit" className="form-submit">
-            <p>Add Rule</p>
-            <AddIcon fontSize="medium" />
-          </button>
+          <div className="form-row">
+            <button type="submit" className="form-submit">
+              <p>Add Rule</p>
+              <AddIcon fontSize="medium" />
+            </button>
+          </div>
         )}
       </>
     );
