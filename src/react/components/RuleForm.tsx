@@ -44,20 +44,20 @@ const RuleForm: React.FC<{
                 onClick={handleCancel}
                 title="Cancel"
               >
-                <p>Cancel</p>
                 <CloseIcon fontSize="small" />
+                <p>Cancel</p>
               </button>
               <button type="submit" className="form-submit" title="Update Rule">
-                <p>Update Rule</p>
                 <CheckIcon fontSize="small" />
+                <p>Update Rule</p>
               </button>
             </div>
           </>
         ) : (
           <div className="form-row">
             <button type="submit" className="form-submit" title="Add Rule">
-              <p>Add Rule</p>
               <AddIcon fontSize="small" />
+              <p>Add Rule</p>
             </button>
           </div>
         )}

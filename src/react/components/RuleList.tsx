@@ -101,8 +101,8 @@ const RuleList = () => {
             className="form-submit"
             title="Clear All Rules"
           >
-            <p>Clear All Rules</p>
             <DeleteIcon fontSize="medium" />
+            <p>Clear All Rules</p>
           </button>
         </div>
       )}
