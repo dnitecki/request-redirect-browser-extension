@@ -8,6 +8,7 @@ export const getFromChromeStorage = (keys: string[] | null) => {
   return new Promise((resolve) => {
     chrome.storage.sync.get(keys, (res) => {
       const valuesArray = Object.values(res);
+      console.log(valuesArray, "dom");
       resolve(valuesArray);
     });
   });
@@ -15,4 +16,8 @@ export const getFromChromeStorage = (keys: string[] | null) => {
 
 export const removeFromChromeStorage = (key: string) => {
   chrome.storage.sync.remove(key);
+};
+
+export const clearAllChromeStorage = async () => {
+  await chrome.storage.sync.clear();
 };

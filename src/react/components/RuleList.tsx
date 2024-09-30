@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./RuleList.scss";
 import {
+  clearAllChromeStorage,
   getFromChromeStorage,
   removeFromChromeStorage,
+  setToChromeStorage,
 } from "../util/chromeStorage";
 import { StorageObject } from "../types/types";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -13,6 +15,7 @@ const RuleList = () => {
   const [ruleList, setRuleList] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [rule, setRule] = useState(null);
+  const [checked, setChecked] = useState(false);
   const getRuleList = async () => {
     const list = await getFromChromeStorage(null);
     setRuleList(list);
@@ -28,6 +31,10 @@ const RuleList = () => {
     setRule(ruleName);
     setIsEditing(true);
   };
+  const handleEnable = async (item: StorageObject) => {
+    const updatedItem = { ...item, enabled: !item.enabled };
+    await setToChromeStorage(item.ruleName, updatedItem);
+  };
   useEffect(() => {
     getRuleList();
   }, []);
@@ -40,18 +47,35 @@ const RuleList = () => {
 
   return (
     <ul className="rule-list-container">
+      {ruleList?.length === 0 && (
+        <div className="form-row">
+          <p>No Rules to Display</p>
+        </div>
+      )}
       {ruleList?.map((item: StorageObject) => (
         <>
           <li key={item.ruleName} className="rule-list-item">
             <div className="rule-list-info">
               <h2>{item.ruleName}</h2>
               <div className="rule-list-options">
-                <button onClick={() => handleEdit(item.ruleName)}>
+                <button onClick={() => handleEdit(item.ruleName)} title="Edit">
                   <EditIcon fontSize="medium" />
                 </button>
-                <button onClick={() => handleDelete(item.ruleName)}>
+                <button
+                  onClick={() => handleDelete(item.ruleName)}
+                  title="Delete"
+                >
                   <DeleteIcon fontSize="medium" />
                 </button>
+                <label className="switch" title="Enable">
+                  <input
+                    type="checkbox"
+                    onChange={() => handleEnable(item)}
+                    checked={item.enabled}
+                    title="Enable"
+                  />
+                  <span className="slider round"></span>
+                </label>
               </div>
             </div>
             <div className="rule-list-edit">
@@ -61,7 +85,7 @@ const RuleList = () => {
                     ruleName: item.ruleName,
                     fromUrl: item.fromUrl,
                     toUrl: item.toUrl,
-                    enabled: false,
+                    enabled: item.enabled,
                   }}
                   setIsEditing={setIsEditing}
                 />
@@ -70,6 +94,18 @@ const RuleList = () => {
           </li>
         </>
       ))}
+      {ruleList?.length > 0 && (
+        <div className="form-row">
+          <button
+            onClick={clearAllChromeStorage}
+            className="form-submit"
+            title="Clear All Rules"
+          >
+            <p>Clear All Rules</p>
+            <DeleteIcon fontSize="medium" />
+          </button>
+        </div>
+      )}
     </ul>
   );
 };

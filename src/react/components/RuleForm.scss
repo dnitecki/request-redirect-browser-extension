@@ -22,7 +22,7 @@
   transition: all 300ms ease-in-out;
 }
 .form-input:focus {
-  border: 2px solid black;
+  border: 2px solid var(--tertiary);
 }
 .form-submit {
   margin-top: 0.5rem;

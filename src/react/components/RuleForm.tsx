@@ -39,19 +39,23 @@ const RuleForm: React.FC<{
         {initialState ? (
           <>
             <div className="form-row">
-              <button className="form-submit" onClick={handleCancel}>
+              <button
+                className="form-submit"
+                onClick={handleCancel}
+                title="Cancel"
+              >
                 <p>Cancel</p>
                 <CloseIcon fontSize="small" />
               </button>
-              <button type="submit" className="form-submit">
-                <p>Save Rule</p>
+              <button type="submit" className="form-submit" title="Update Rule">
+                <p>Update Rule</p>
                 <CheckIcon fontSize="small" />
               </button>
             </div>
           </>
         ) : (
           <div className="form-row">
-            <button type="submit" className="form-submit">
+            <button type="submit" className="form-submit" title="Add Rule">
               <p>Add Rule</p>
               <AddIcon fontSize="small" />
             </button>
