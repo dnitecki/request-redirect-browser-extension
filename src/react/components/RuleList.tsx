@@ -15,7 +15,6 @@ const RuleList = () => {
   const [ruleList, setRuleList] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [rule, setRule] = useState(null);
-  const [checked, setChecked] = useState(false);
   const getRuleList = async () => {
     const list = await getFromChromeStorage(null);
     setRuleList(list);
@@ -28,7 +27,10 @@ const RuleList = () => {
     removeFromChromeStorage(key);
   };
   const handleEdit = (ruleName: string) => {
-    setRule(ruleName);
+    if (isEditing && ruleName === rule) {
+      setRule(null);
+      setIsEditing(false);
+    } else setRule(ruleName);
     setIsEditing(true);
   };
   const handleEnable = async (item: StorageObject) => {
