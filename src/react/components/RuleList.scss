@@ -33,4 +33,10 @@
   width: fit-content;
   height: fit-content;
   gap: 0.5rem;
+  button {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+  }
 }
