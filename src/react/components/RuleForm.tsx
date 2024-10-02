@@ -86,20 +86,31 @@ const RuleForm: React.FC<{
         </>
       )}
       <label htmlFor="fromUrl" className="form-label">
-        From URL:
+        If URL
       </label>
-      <input
-        type="text"
-        id="fromUrl"
-        name="fromUrl"
-        className="form-input"
-        placeholder="https://example.com"
-        value={formData.fromUrl}
-        onChange={handleChange}
-        required
-      />
+      <div className="form-selct-input-row">
+        <select
+          className="form-select"
+          id="ruleType"
+          defaultValue="Rule Type"
+          required
+        >
+          <option value="home">Equals</option>
+          <option value="auto">Contains</option>
+        </select>
+        <input
+          type="text"
+          id="fromUrl"
+          name="fromUrl"
+          className="form-input-with-select"
+          placeholder="https://example.com"
+          value={formData.fromUrl}
+          onChange={handleChange}
+          required
+        />
+      </div>
       <label htmlFor="toUrl" className="form-label">
-        To URL:
+        Redirect to
       </label>
       <input
         type="text"
