@@ -19,7 +19,8 @@
       "js": ["contentScript.js"]
     }
   ],
-  "permissions": ["storage", "scripting"],
+  "permissions": ["webRequest", "storage"],
+  "host_permissions": ["<all_urls>"],
   "icons": {
     "128": "rr-icon-128.png"
   }
