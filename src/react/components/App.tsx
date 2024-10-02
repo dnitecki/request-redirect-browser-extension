@@ -10,7 +10,7 @@ export default function App() {
       <section className="header">
         <div className="title">
           <h1>
-            <span>Re</span>Route
+            <span>re</span>Route
           </h1>
           <RepeatIcon className="main-icon" fontSize="large" />
         </div>
