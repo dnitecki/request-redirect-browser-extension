@@ -19,7 +19,14 @@
       "js": ["contentScript.js"]
     }
   ],
-  "permissions": ["webRequest", "webRequestBlocking", "storage"],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "<all_urls>",
+    "storage"
+  ],
   "host_permissions": ["<all_urls>"],
   "icons": {
     "128": "rr-icon-128.png"
