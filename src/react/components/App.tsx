@@ -9,8 +9,10 @@ export default function App() {
     <div className="app-container">
       <section className="header">
         <div className="title">
-          <h1>ReRoute</h1>
-          <RepeatIcon fontSize="large" />
+          <h1>
+            <span>Re</span>Route
+          </h1>
+          <RepeatIcon className="main-icon" fontSize="large" />
         </div>
       </section>
       <section className="main">
