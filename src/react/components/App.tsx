@@ -12,9 +12,6 @@ export default function App() {
           <h1>ReRoute</h1>
           <RepeatIcon fontSize="large" />
         </div>
-        <div className="version">
-          <p>v{version}</p>
-        </div>
       </section>
       <section className="main">
         <RuleForm />
@@ -22,6 +19,11 @@ export default function App() {
           <h1>Rules</h1>
         </div>
         <RuleList />
+      </section>
+      <section className="footer">
+        <div className="version">
+          <p>v{version}</p>
+        </div>
       </section>
     </div>
   );

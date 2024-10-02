@@ -49,7 +49,7 @@ const RuleForm: React.FC<{
               </button>
               <button type="submit" className="form-submit" title="Update Rule">
                 <CheckIcon fontSize="small" />
-                <p>Update Rule</p>
+                <p>Update</p>
               </button>
             </div>
           </>

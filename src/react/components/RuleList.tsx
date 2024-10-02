@@ -69,12 +69,14 @@ const RuleList = () => {
                 >
                   <DeleteIcon fontSize="medium" />
                 </button>
-                <label className="switch" title="Enable">
+                <label
+                  className="switch"
+                  title={item.enabled ? "Disable" : "Enable"}
+                >
                   <input
                     type="checkbox"
                     onChange={() => handleEnable(item)}
                     checked={item.enabled}
-                    title="Enable"
                   />
                   <span className="slider round"></span>
                 </label>
