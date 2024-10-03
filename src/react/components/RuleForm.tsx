@@ -6,6 +6,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { StorageObject } from "../types/types";
 import { setToChromeStorage } from "../util/chromeStorage";
+import { RuleOperatorEnum } from "../enums/enums";
 
 const RuleForm: React.FC<{
   initialState?: StorageObject;
@@ -13,6 +14,7 @@ const RuleForm: React.FC<{
 }> = ({ initialState, setIsEditing }) => {
   const formInitialState: StorageObject = {
     ruleName: EMPTY_STRING,
+    ruleOperator: RuleOperatorEnum.EQUALS,
     fromUrl: EMPTY_STRING,
     toUrl: EMPTY_STRING,
     enabled: false,
@@ -77,7 +79,6 @@ const RuleForm: React.FC<{
             id="ruleName"
             name="ruleName"
             className="form-input"
-            placeholder="Rule123"
             value={formData.ruleName}
             onChange={handleChange}
             disabled={initialState ? true : false}
@@ -91,19 +92,20 @@ const RuleForm: React.FC<{
       <div className="form-selct-input-row">
         <select
           className="form-select"
-          id="ruleType"
-          defaultValue="Rule Type"
+          id="ruleOperator"
+          name="ruleOperator"
           required
+          onChange={handleChange}
+          value={formData.ruleOperator}
         >
-          <option value="home">Equals</option>
-          <option value="auto">Contains</option>
+          <option value="equals">Equals</option>
+          <option value="contains">Contains</option>
         </select>
         <input
           type="text"
           id="fromUrl"
           name="fromUrl"
           className="form-input-with-select"
-          placeholder="https://example.com"
           value={formData.fromUrl}
           onChange={handleChange}
           required
@@ -117,7 +119,6 @@ const RuleForm: React.FC<{
         id="toUrl"
         name="toUrl"
         className="form-input"
-        placeholder="https://new-url.com"
         value={formData.toUrl}
         onChange={handleChange}
         required

@@ -3,7 +3,7 @@
   --primary: rgb(40, 40, 40);
   --secondary: rgb(81, 80, 80);
   --tertiary: #2196f3;
-  --background-color: rgb(232, 232, 232);
+  --background-color: #ccc;
 
   //css variables
   --border-radius: 5px;
@@ -112,7 +112,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--background-color);
   border-radius: 30px;
   -webkit-transition: 0.4s;
   transition: 0.4s;

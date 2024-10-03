@@ -1,69 +1,68 @@
 .rule-form-container {
   display: flex;
+  max-width: 100%;
   flex-direction: column;
-  width: 100%;
-  height: fit-content;
-  gap: 0.5rem;
+  justify-content: center;
   margin-top: 0.5rem;
 }
 .form-label {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
 }
 .form-input {
-  background-color: var(--background-color);
-  height: fit-content;
+  background-color: var(--secondary);
+  height: 40px;
+  box-sizing: border-box;
   max-width: 100%;
-  padding: 0.5rem 0.5rem;
-  color: black;
-  border-radius: var(--border-radius);
-  border: 2px solid white;
+  padding: 0.3rem 0.5rem;
+  color: white;
+  border-bottom: 2px solid white;
   font-size: 16px;
   transition: all 300ms ease-in-out;
+  margin-bottom: 0.5rem;
 }
 .form-input:focus {
-  border: 2px solid var(--tertiary);
+  border-bottom: 2px solid var(--tertiary);
 }
 .form-selct-input-row {
   display: flex;
   height: fit-content;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  gap: 0.5rem;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
   .form-input-with-select {
-    background-color: var(--background-color);
-    height: fit-content;
-    width: 70%;
-    padding: 0.5rem 0.5rem;
-    color: black;
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    border: 2px solid white;
+    background-color: var(--secondary);
+    height: 40px;
+    box-sizing: border-box;
+    width: 65%;
+    padding: 0.3rem 0.5rem;
+    color: white;
+    border-bottom: 2px solid white;
     font-size: 16px;
     transition: all 300ms ease-in-out;
   }
   .form-input-with-select:focus {
-    border: 2px solid var(--tertiary);
+    border-bottom: 2px solid var(--tertiary);
   }
   .form-select {
     display: flex;
-    height: 100%;
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
+    height: 40px;
     background-color: var(--secondary);
     color: white;
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.2rem;
     font-size: 16px;
-    outline: 2px solid var(--secondary);
-    border: 2px solid var(--secondary);
-    width: 30%;
-    -webkit-appearance: none;
-    appearance: none;
+    border-bottom: 2px solid white;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    width: 35%;
+    outline: none;
     transition: all 300ms ease-in-out;
+    box-sizing: border-box;
   }
   .form-select:focus {
-    outline: 2px solid var(--tertiary);
-    border: 2px solid transparent;
+    border-bottom: 2px solid var(--tertiary);
   }
 }
 .form-submit {

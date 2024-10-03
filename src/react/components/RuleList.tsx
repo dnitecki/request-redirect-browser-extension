@@ -87,6 +87,7 @@ const RuleList = () => {
                 <RuleForm
                   initialState={{
                     ruleName: item.ruleName,
+                    ruleOperator: item.ruleOperator,
                     fromUrl: item.fromUrl,
                     toUrl: item.toUrl,
                     enabled: item.enabled,
@@ -99,7 +100,7 @@ const RuleList = () => {
         </>
       ))}
       {ruleList?.length > 0 && (
-        <div className="form-row">
+        <li className="form-row">
           <button
             onClick={clearAllChromeStorage}
             className="form-submit"
@@ -108,7 +109,7 @@ const RuleList = () => {
             <DeleteIcon fontSize="medium" />
             <p>Clear All Rules</p>
           </button>
-        </div>
+        </li>
       )}
     </ul>
   );
