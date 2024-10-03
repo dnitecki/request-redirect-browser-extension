@@ -16,9 +16,7 @@ export default function App() {
         </div>
       </section>
       <section className="main">
-        <div className="rule-form-card">
-          <RuleForm />
-        </div>
+        <RuleForm />
         <div className="title">
           <h1>Rules</h1>
         </div>
