@@ -98,8 +98,8 @@ const RuleForm: React.FC<{
           onChange={handleChange}
           value={formData.ruleOperator}
         >
-          <option value="equals">Equals</option>
-          <option value="contains">Contains</option>
+          <option value={RuleOperatorEnum.EQUALS}>Equals</option>
+          <option value={RuleOperatorEnum.CONTAINS}>Contains</option>
         </select>
         <input
           type="text"
