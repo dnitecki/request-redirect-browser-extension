@@ -94,6 +94,7 @@ const RuleForm: React.FC<{
           className="form-select"
           id="ruleOperator"
           name="ruleOperator"
+          title="Operator"
           required
           onChange={handleChange}
           value={formData.ruleOperator}
