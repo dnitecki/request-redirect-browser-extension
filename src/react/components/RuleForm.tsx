@@ -4,9 +4,9 @@ import "./RuleForm.scss";
 import AddIcon from "@mui/icons-material/Add";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
-import { StorageObject } from "../types/types";
 import { setToChromeStorage } from "../util/chromeStorage";
-import { RuleOperatorEnum } from "../enums/enums";
+import { StorageObject } from "../../types/types";
+import { RuleOperatorEnum } from "../../enums/enums";
 
 const RuleForm: React.FC<{
   initialState?: StorageObject;

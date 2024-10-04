@@ -1,4 +1,4 @@
-import { StorageObject } from "../types/types";
+import { StorageObject } from "../../types/types";
 
 export const setToChromeStorage = (key: string, value: StorageObject) => {
   chrome.storage.sync.set({ [key]: value });

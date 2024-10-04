@@ -1,27 +1,28 @@
-import { StorageObject } from "../react/types/types";
-import { getFromChromeStorage } from "../react/util/chromeStorage";
-import { RedirectRule } from "./types/types";
+import { StorageObject } from "../types/types";
 
 function createRedirectRule(rule: any, id: number) {
   return {
     id: id,
     priority: 1,
     action: {
-      type: "redirect",
+      type: chrome.declarativeNetRequest.RuleActionType.REDIRECT,
       redirect: {
         url: rule.toUrl,
       },
     },
     condition: {
       urlFilter: rule.fromUrl, // Match the fromUrl defined in storage
-      resourceTypes: ["main_frame", "xmlhttprequest"],
+      resourceTypes: [
+        chrome.declarativeNetRequest.ResourceType.MAIN_FRAME,
+        chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST,
+      ],
     },
   };
 }
 // Function to load and update redirect rules dynamically
 function loadAndApplyRedirectRules() {
   chrome.storage.sync.get(null, (data: { [key: string]: StorageObject }) => {
-    const dynamicRules: RedirectRule[] = [];
+    const dynamicRules: chrome.declarativeNetRequest.Rule[] = [];
     let ruleId = 1;
 
     for (const key in data) {

@@ -6,10 +6,10 @@ import {
   removeFromChromeStorage,
   setToChromeStorage,
 } from "../util/chromeStorage";
-import { StorageObject } from "../types/types";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import RuleForm from "./RuleForm";
+import { StorageObject } from "../../types/types";
 
 const RuleList = () => {
   const [ruleList, setRuleList] = useState(null);
