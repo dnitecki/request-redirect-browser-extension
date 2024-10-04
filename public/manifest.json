@@ -7,7 +7,7 @@
     "default_popup": "index.html",
     "default_title": "ReRoute",
     "default_icon": {
-      "128": "rr-icon-128.png"
+      "128": "reroute-icon-128.png"
     }
   },
   "background": {
@@ -20,8 +20,6 @@
     }
   ],
   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
     "declarativeNetRequest",
     "declarativeNetRequestWithHostAccess",
     "<all_urls>",
@@ -29,6 +27,9 @@
   ],
   "host_permissions": ["<all_urls>"],
   "icons": {
-    "128": "rr-icon-128.png"
+    "128": "reroute-icon-128.png",
+    "48": "reroute-icon-48.png",
+    "32": "reroute-icon-32.png",
+    "16": "reroute-icon-16.png"
   }
 }
