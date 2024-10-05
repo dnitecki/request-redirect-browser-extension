@@ -5,6 +5,17 @@ function createRedirectRule(
   rule: StorageObject,
   id: number
 ): chrome.declarativeNetRequest.Rule {
+  // Determine the urlFilter based on ruleOperator
+  let urlFilter: string;
+
+  if (rule.ruleOperator === "equals") {
+    // Exact match requires the full URL
+    urlFilter = rule.fromUrl;
+  } else if (rule.ruleOperator === "contains") {
+    // Contains match needs a wildcard around the URL
+    urlFilter = `*${rule.fromUrl}*`;
+  }
+
   return {
     id: id,
     priority: 1,
@@ -15,11 +26,11 @@ function createRedirectRule(
       },
     },
     condition: {
-      urlFilter: rule.fromUrl, // Match the fromUrl defined in storage
+      urlFilter: urlFilter, // Use the dynamic urlFilter based on the operator
       resourceTypes: [
         chrome.declarativeNetRequest.ResourceType.MAIN_FRAME,
         chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST,
-      ], // Correctly reference the ResourceType enum
+      ],
     },
   };
 }
