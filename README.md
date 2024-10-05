@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Chrome URL Redirector** extension allows users to set up dynamic redirect rules for HTTP API requests. It can redirect requests based on specified URL patterns, making it easy to switch between different environments (e.g., development and production) or change the API endpoints without modifying the application code.
+The **reRoute Chrome Extension** allows users to set up dynamic redirect rules for HTTP API requests. It can redirect requests based on specified URL patterns, making it easy to switch between different environments (e.g., development and production) or change the API endpoints without modifying the application code.
 
 ## Features
 
