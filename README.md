@@ -7,7 +7,7 @@ The **reRoute Chrome Extension** allows users to set up dynamic redirect rules f
 ## Features
 
 - **Dynamic Redirects**: Redirect HTTP requests based on defined rules stored in Chrome's synchronized storage.
-- **Flexible Rule Definition**: Define rules based on URL patterns with options for contains, starts with, or exact matches.
+- **Flexible Rule Definition**: Define rules based on URL patterns with options for contains or exact matches.
 - **User-Friendly Storage Management**: Easily add, remove, and clear redirect rules using Chrome's storage API.
 
 ## Getting Started
