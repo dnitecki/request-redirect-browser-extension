@@ -1,3 +1,4 @@
+import { RuleOperatorEnum } from "../enums/enums";
 import { StorageObject } from "../types/types";
 
 // Function to generate redirect rules from stored data
@@ -8,10 +9,10 @@ function createRedirectRule(
   // Determine the urlFilter based on ruleOperator
   let urlFilter: string;
 
-  if (rule.ruleOperator === "equals") {
+  if (rule.ruleOperator === RuleOperatorEnum.EQUALS) {
     // Exact match requires the full URL
     urlFilter = rule.fromUrl;
-  } else if (rule.ruleOperator === "contains") {
+  } else if (rule.ruleOperator === RuleOperatorEnum.CONTAINS) {
     // Contains match needs a wildcard around the URL
     urlFilter = `*${rule.fromUrl}*`;
   }
