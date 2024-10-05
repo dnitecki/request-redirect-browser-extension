@@ -15,9 +15,10 @@ The **reRoute Chrome Extension** allows users to set up dynamic redirect rules f
 ### Installation
 
 1. Download or clone this repository.
-2. Open Chrome and navigate to `chrome://extensions`.
-3. Enable "Developer mode" by toggling the switch in the top right corner.
-4. Click on "Load unpacked" and select the directory where the extension is located.
+2. run `npm run build` & `npm install` to install required dependencies and build the extension into the `dist` folder.
+3. Open Chrome and navigate to `chrome://extensions`.
+4. Enable "Developer mode" by toggling the switch in the top right corner.
+5. Click on "Load unpacked" and select the directory where the extension's `dist` folder is located.
 
 ### Usage
 
@@ -43,4 +44,4 @@ const redirectRule: StorageObject = {
 };
 ```
 
-github @dnitecki
+### GitHub @dnitecki
