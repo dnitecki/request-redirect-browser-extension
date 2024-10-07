@@ -19,10 +19,6 @@ const RuleList = () => {
     const list = await getFromChromeStorage(null);
     setRuleList(list);
   };
-  const handleStorageChange = async () => {
-    const list = await getFromChromeStorage(null);
-    setRuleList(list);
-  };
   const handleDelete = async (key: string) => {
     removeFromChromeStorage(key);
   };
@@ -39,13 +35,11 @@ const RuleList = () => {
   };
   useEffect(() => {
     getRuleList();
-  }, []);
-  useEffect(() => {
-    chrome.storage.onChanged.addListener(handleStorageChange);
+    chrome.storage.onChanged.addListener(getRuleList);
     return () => {
-      chrome.storage.onChanged.removeListener(handleStorageChange);
+      chrome.storage.onChanged.removeListener(getRuleList);
     };
-  });
+  }, []);
 
   return (
     <ul className="rule-list-container">

@@ -63,7 +63,8 @@ function loadAndApplyRedirectRules(): void {
         addRules: dynamicRules,
       },
       () => {
-        console.log("Redirect rules applied:", dynamicRules);
+        const rules = chrome.declarativeNetRequest.getDynamicRules();
+        console.log("Redirect rules applied:", rules);
       }
     );
   });
@@ -71,11 +72,6 @@ function loadAndApplyRedirectRules(): void {
 
 // Listen for changes in chrome storage to reload redirect rules
 chrome.storage.onChanged.addListener((): void => {
-  loadAndApplyRedirectRules();
-});
-
-// Load the redirect rules initially when the extension is installed
-chrome.runtime.onInstalled.addListener((): void => {
   loadAndApplyRedirectRules();
 });
 
