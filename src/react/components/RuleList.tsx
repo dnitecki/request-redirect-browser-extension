@@ -44,9 +44,9 @@ const RuleList = () => {
   return (
     <ul className="rule-list-container">
       {ruleList?.length === 0 && (
-        <div className="form-row">
+        <li className="form-row">
           <p>No Rules to Display</p>
-        </div>
+        </li>
       )}
       {ruleList?.map((item: StorageObject) => (
         <>
