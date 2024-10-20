@@ -12,9 +12,6 @@ export default function App() {
       </section>
       <section className="main">
         <RuleForm />
-        <div className="heading-text">
-          <h1>Rules</h1>
-        </div>
         <RuleList />
       </section>
       <section className="footer">

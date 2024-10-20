@@ -42,70 +42,78 @@ const RuleList = () => {
   }, []);
 
   return (
-    <ul className="rule-list-container">
-      {ruleList?.length === 0 && (
-        <li className="form-row">
-          <p>No Rules to Display</p>
-        </li>
-      )}
-      {ruleList?.map((item: StorageObject) => (
-        <>
-          <li key={item.ruleName} className="rule-list-item">
-            <div className="rule-list-info">
-              <h2>{item.ruleName}</h2>
-              <div className="rule-list-options">
-                <button onClick={() => handleEdit(item.ruleName)} title="Edit">
-                  <EditIcon fontSize="medium" />
-                </button>
-                <button
-                  onClick={() => handleDelete(item.ruleName)}
-                  title="Delete"
-                >
-                  <DeleteIcon fontSize="medium" />
-                </button>
-                <label
-                  className="switch"
-                  title={item.enabled ? "Disable" : "Enable"}
-                >
-                  <input
-                    type="checkbox"
-                    onChange={() => handleEnable(item)}
-                    checked={item.enabled}
-                  />
-                  <span className="slider round"></span>
-                </label>
-              </div>
-            </div>
-            <div className="rule-list-edit">
-              {isEditing && rule === item.ruleName && (
-                <RuleForm
-                  initialState={{
-                    ruleName: item.ruleName,
-                    ruleOperator: item.ruleOperator,
-                    fromUrl: item.fromUrl,
-                    toUrl: item.toUrl,
-                    enabled: item.enabled,
-                  }}
-                  setIsEditing={setIsEditing}
-                />
-              )}
-            </div>
+    <>
+      <div className="heading-text">
+        <h1>Rules</h1>
+      </div>
+      <ul className="rule-list-container">
+        {ruleList?.length === 0 && (
+          <li className="form-row">
+            <p>No Rules to Display</p>
           </li>
-        </>
-      ))}
-      {ruleList?.length > 0 && (
-        <li className="form-row">
-          <button
-            onClick={clearAllChromeStorage}
-            className="form-submit"
-            title="Clear All Rules"
-          >
-            <DeleteIcon fontSize="medium" />
-            <p>Clear All Rules</p>
-          </button>
-        </li>
-      )}
-    </ul>
+        )}
+        {ruleList?.map((item: StorageObject) => (
+          <>
+            <li key={item.ruleName} className="rule-list-item">
+              <div className="rule-list-info">
+                <h2>{item.ruleName}</h2>
+                <div className="rule-list-options">
+                  <button
+                    onClick={() => handleEdit(item.ruleName)}
+                    title="Edit"
+                  >
+                    <EditIcon fontSize="medium" />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item.ruleName)}
+                    title="Delete"
+                  >
+                    <DeleteIcon fontSize="medium" />
+                  </button>
+                  <label
+                    className="switch"
+                    title={item.enabled ? "Disable" : "Enable"}
+                  >
+                    <input
+                      type="checkbox"
+                      onChange={() => handleEnable(item)}
+                      checked={item.enabled}
+                    />
+                    <span className="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div className="rule-list-edit">
+                {isEditing && rule === item.ruleName && (
+                  <RuleForm
+                    initialState={{
+                      ruleName: item.ruleName,
+                      ruleOperator: item.ruleOperator,
+                      fromUrl: item.fromUrl,
+                      toUrl: item.toUrl,
+                      enabled: item.enabled,
+                    }}
+                    setIsEditing={setIsEditing}
+                  />
+                )}
+              </div>
+            </li>
+          </>
+        ))}
+        {ruleList?.length > 0 && (
+          <li className="form-row">
+            <button
+              onClick={clearAllChromeStorage}
+              className="form-submit"
+              title="Clear All Rules"
+            >
+              <DeleteIcon fontSize="medium" />
+              <p>Clear All Rules</p>
+            </button>
+          </li>
+        )}
+      </ul>
+    </>
   );
 };
 
