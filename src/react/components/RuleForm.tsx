@@ -71,7 +71,7 @@ const RuleForm: React.FC<{
     <form onSubmit={setRule} id="ruleForm" className="rule-form-container">
       {!initialState && (
         <>
-          <label htmlFor="fromUrl" className="form-label">
+          <label htmlFor="ruleName" className="form-label">
             Rule Name
           </label>
           <input
