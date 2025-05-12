@@ -19,8 +19,11 @@ const RuleList = () => {
     const list = await getFromChromeStorage(null);
     setRuleList(list);
   };
-  const handleDelete = async (key: string) => {
-    removeFromChromeStorage(key);
+  const handleDelete = async (item: StorageObject) => {
+    const updatedItem = { ...item, enabled: false };
+    await setToChromeStorage(item.ruleName, updatedItem);
+    await removeFromChromeStorage(item.ruleName);
+
   };
   const handleEdit = (ruleName: string) => {
     if (isEditing && ruleName === rule) {
@@ -65,7 +68,7 @@ const RuleList = () => {
                     <EditIcon fontSize="medium" />
                   </button>
                   <button
-                    onClick={() => handleDelete(item.ruleName)}
+                    onClick={async () => await handleDelete(item)}
                     title="Delete"
                   >
                     <DeleteIcon fontSize="medium" />
