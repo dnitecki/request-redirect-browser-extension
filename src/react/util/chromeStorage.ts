@@ -6,8 +6,8 @@ import { StorageObject } from "../../types/types";
  * @param key - The key under which to store the value.
  * @param value - The StorageObject to be stored.
  */
-export const setToChromeStorage = (key: string, value: StorageObject) => {
-  chrome.storage.sync.set({ [key]: value });
+export const setToChromeStorage = async (key: string, value: StorageObject) => {
+  await chrome.storage.sync.set({ [key]: value });
 };
 
 /**
@@ -31,8 +31,9 @@ export const getFromChromeStorage = (keys: string[] | null) => {
  *
  * @param key - The key of the item to be removed.
  */
-export const removeFromChromeStorage = (key: string) => {
-  chrome.storage.sync.remove(key);
+
+export const removeFromChromeStorage = async (key: string) => {
+  await chrome.storage.sync.remove(key);
 };
 
 /**
