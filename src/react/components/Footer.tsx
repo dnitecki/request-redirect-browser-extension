@@ -25,7 +25,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Dominick Nitecki
+            Dominick Nitecki & Tyler McRill
           </a>
         </p>
       </div>
