@@ -19,12 +19,15 @@ const RuleList = () => {
     const list = await getFromChromeStorage(null);
     setRuleList(list);
   };
+
+  // Remove the disabled rules
   const handleDelete = async (item: StorageObject) => {
     const updatedItem = { ...item, enabled: false };
     await setToChromeStorage(item.ruleName, updatedItem);
     await removeFromChromeStorage(item.ruleName);
-
   };
+
+  // Handle the edit button click
   const handleEdit = (ruleName: string) => {
     if (isEditing && ruleName === rule) {
       setRule(null);
@@ -32,10 +35,13 @@ const RuleList = () => {
     } else setRule(ruleName);
     setIsEditing(true);
   };
+
+  // Handle the enable/disable button click
   const handleEnable = async (item: StorageObject) => {
     const updatedItem = { ...item, enabled: !item.enabled };
     await setToChromeStorage(item.ruleName, updatedItem);
   };
+
   useEffect(() => {
     getRuleList();
     chrome.storage.onChanged.addListener(getRuleList);
