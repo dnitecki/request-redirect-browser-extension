@@ -4,7 +4,7 @@ import RuleForm from "./RuleForm";
 import RuleList from "./RuleList";
 import Footer from "./Footer";
 
-export default function App() {
+export const App = () => {
   return (
     <div className="app-container">
       <section className="header">
@@ -19,4 +19,5 @@ export default function App() {
       </section>
     </div>
   );
-}
+};
+export default App;
