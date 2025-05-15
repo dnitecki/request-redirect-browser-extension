@@ -28,12 +28,14 @@ const RuleList = () => {
   };
 
   // Handle the edit button click
-  const handleEdit = (ruleName: string) => {
-    if (isEditing && ruleName === rule) {
+  const handleEdit = async (item: StorageObject) => {
+    if (isEditing && item.ruleName === rule) {
       setRule(null);
       setIsEditing(false);
-    } else setRule(ruleName);
+    } else setRule(item.ruleName);
     setIsEditing(true);
+    const updatedItem = { ...item, enabled: false };
+    await setToChromeStorage(item.ruleName, updatedItem);
   };
 
   // Handle the enable/disable button click
@@ -67,10 +69,7 @@ const RuleList = () => {
               <div className="rule-list-info">
                 <h2>{item.ruleName}</h2>
                 <div className="rule-list-options">
-                  <button
-                    onClick={() => handleEdit(item.ruleName)}
-                    title="Edit"
-                  >
+                  <button onClick={() => handleEdit(item)} title="Edit">
                     <EditIcon fontSize="medium" />
                   </button>
                   <button

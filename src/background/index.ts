@@ -19,7 +19,7 @@ function createRedirectRule(
 
   return {
     id: id,
-    priority: 1,
+    priority: id,
     action: {
       type: chrome.declarativeNetRequest.RuleActionType.REDIRECT,
       redirect: {
