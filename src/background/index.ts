@@ -19,7 +19,7 @@ function createRedirectRule(
 
   return {
     id: id,
-    priority: id,
+    priority: 1,
     action: {
       type: chrome.declarativeNetRequest.RuleActionType.REDIRECT,
       redirect: {
@@ -36,15 +36,24 @@ function createRedirectRule(
   };
 }
 
+// Simple unique id generator from a string (e.g., ruleName)
+function stringToId(ruleName: string): number {
+  let id = 0;
+  for (let i = 0; i < ruleName.length; i++) {
+    id += ruleName.charCodeAt(i) * (i + 1);
+  }
+  return (id % 1000000) + 1;
+}
+
 // Function to load and update redirect rules dynamically
 function loadAndApplyRedirectRules(): void {
   chrome.storage.sync.get(null, (data: { [key: string]: StorageObject }) => {
     const dynamicRules: chrome.declarativeNetRequest.Rule[] = [];
     const ruleIdsToRemove: number[] = [];
-    let ruleId = 1;
 
     for (const key in data) {
       const rule: StorageObject = data[key];
+      const ruleId: number = stringToId(rule.ruleName);
 
       if (rule.enabled) {
         // Create a new redirect rule based on the stored data
@@ -53,7 +62,6 @@ function loadAndApplyRedirectRules(): void {
         // If the rule is disabled, we need to prepare to remove it
         ruleIdsToRemove.push(ruleId);
       }
-      ruleId++;
     }
 
     // Update the declarativeNetRequest rules
@@ -62,8 +70,8 @@ function loadAndApplyRedirectRules(): void {
         removeRuleIds: ruleIdsToRemove,
         addRules: dynamicRules,
       },
-      () => {
-        const rules = chrome.declarativeNetRequest.getDynamicRules();
+      async () => {
+        const rules = await chrome.declarativeNetRequest.getDynamicRules();
         console.log("Redirect rules applied:", rules);
       }
     );
